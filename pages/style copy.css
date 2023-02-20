@@ -1,0 +1,527 @@
+*{
+    margin: 0;
+    padding: 0;    
+    width: 100%;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Poppins", sans-serif;
+}
+
+:root{
+    --grey: #171819;
+    --dark-grey: #222;
+    --cream: #eee;
+    --white: #fff;
+    --orange: #f13a11;
+    --Monotype-Corsiva: 'Monotype Corsiva';
+    --nav_bar_ht: 9rem; /* light black part in nav bar*/
+    --nav:12px;
+    --nav_block_padding: 1rem;
+    --logo_padding_left: 1.5rem;
+    --logo_ht: 3rem;
+    --hamburger-padding-rt: 1rem;
+    --heading_padding: 1.8rem; /* a century of... */
+    --heading_font_size: 4rem; /*Intitution...*/
+    --container_padding: 2rem;
+    --button_font_size: 0.8rem;
+    --footer_padding: 1rem;
+    --footer-logo-width: 1.5rem;
+}
+
+body{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #eee;
+}
+
+/* ------------------Navigation Bar---------- */
+nav{
+    height: var(--logo_ht);
+    width: 100%;
+    background-color: var(--dark-grey);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.logo-container{
+    width: fit-content;
+    display: block;
+}
+
+.logo{
+    height: var(--logo_ht);
+    width: auto;
+    padding-left: var(--logo_padding_left);
+}
+
+ul{
+    display: none;
+    flex-basis: 8rem;
+    padding: var(--nav_block_padding) 0;        
+}
+
+ul li{
+    text-transform: uppercase;
+    text-align: center;
+}
+
+ul li a {
+    font-size: 1.4rem;
+    font-weight: 100;
+    color: var(--cream);
+}
+
+ul li a:hover{
+    color: var(--orange);
+}
+
+/* -------------- hamburger icon ----------------- */
+#hamburger-icon {
+    display: block;
+    flex-direction: row;
+    min-height: 1.1rem;
+    width: fit-content;
+    cursor: pointer;
+    padding-right: var(--hamburger-padding-rt);    
+  }
+
+#hamburger-icon div{
+    transition: 0.5s;
+}
+
+.bar1, .bar2, .bar3{
+    width: 2rem;
+    height: 0.2rem;
+    margin-top: 0.2rem;
+    background-color: white;
+}
+
+.open .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-0.1rem, 0.1rem);
+    transform: rotate(-45deg) translate(-0.1rem, 0.1rem);
+  }
+  
+  .open .bar2 {
+    opacity: 0;
+  }
+  
+  .open .bar3 {
+    -webkit-transform: rotate(45deg) translate(-0.4rem, -0.5rem);
+    transform: rotate(45deg) translate(-0.4rem, -0.5rem);
+  }
+
+/* -------------------- menu --------------------- */
+.open .mobile-menu{
+    display: flex;
+}
+
+.mobile-menu {
+    padding: 0;
+    display: none;
+    flex-direction: column;
+}
+
+.mobile-menu li {
+    padding: 0.6rem 0;
+    background-color: var(--dark-grey);
+}
+
+/* ------------------container common------------------ */
+.container{
+    width: calc(100% - (2 * var(--container_padding)));
+    padding: var(--container_padding);
+}
+
+.events-upcoming::-webkit-scrollbar,.our-team::-webkit-scrollbar {
+   display: none;
+}
+
+/* ------------------Title common------------------ */
+.title{
+    position: relative;
+    width: max-content;
+    font-family: 'Merriweather', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--grey);
+    line-height: 5rem;
+    white-space: nowrap;
+}
+
+.title::after{
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 80%;
+    background: #000;
+    left: 1rem;
+    bottom: 0; 
+}
+
+/* ------------------About Us------------------ */
+.about .content{
+    text-align: justify;
+    padding-top: 2rem;
+    font-family: 'Merriweather', serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+/* ------------------Our Events------------------ */
+.events-upcoming{
+    max-height: 30rem;
+    padding-top: 4rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.row{
+    height: 100%;
+    align-items: stretch;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.events-upcoming .card {
+    max-width: 300px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.events-upcoming .card > img{
+    max-width: 90%;
+    border-radius: 1rem;
+}
+
+/* ------------------ Button - learn more ------------------ */
+.button-container{    
+    width: fit-content;
+    display: block;
+    padding-top: 1rem;
+}
+
+.button-container a{
+    background-color: black;  
+    border-radius: 0.6rem;
+    padding: 0.9rem 2rem;
+
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: var(--button_font_size);
+    line-height: calc(var(--button_font_size) + 0.5);
+    letter-spacing: 0.1rem;
+    color:var(--white);
+    white-space: nowrap;
+}
+
+/* ---------------- nxt/prev btn ------------------- */
+button{
+    width: fit-content;
+    
+    background-color: black;  
+    border-radius: 0.6rem;
+
+    padding: 0.9rem 2rem;
+    
+}
+
+.events-pre-btn,
+.events-nxt-btn,
+.our-team-pre-btn,
+.our-team-nxt-btn {
+    border: none;
+    display: none;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #eee 100%);
+    cursor: pointer;
+    height: 22rem;
+}
+.events-pre-btn,
+.events-nxt-btn{
+    height: 30rem;
+}
+.events-pre-btn,
+.our-team-pre-btn {
+    left: 2rem;    
+    transform: rotate(180deg);
+}
+
+.events-nxt-btn,
+.our-team-nxt-btn {
+    right: 2rem;
+}
+
+.events-pre-btn img,
+.events-nxt-btn img,
+.our-team-pre-btn img,
+.our-team-nxt-btn img {
+    opacity: 0.2;
+}
+
+.events-pre-btn:hover img,
+.our-team-pre-btn:hover img,
+.events-nxt-btn:hover img,
+.our-team-nxt-btn:hover img {
+  opacity: 1;
+}
+
+/* ------------------ Our Team ------------------ */
+.our-team{
+    height: 16rem;
+    padding-top: 4rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.our-team .row .card{
+    max-width: 300px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 10rem;
+    padding: .7rem;
+    display: block;
+    text-align: center;    
+    color: var(--dark-grey);
+    text-shadow: var(--white);
+}
+
+.our-team .row .card > img{
+    border-radius: 1rem;
+    height: 10rem;
+    max-width: 8rem;
+}
+
+.our-team .card h5{
+    padding: 0.3rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--dark-grey);
+}
+
+.our-team .card h6{
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--grey);
+}
+
+.events-pre-btn,
+.events-nxt-btn,.our-team-pre-btn,
+.our-team-nxt-btn {
+    display: none;
+}
+
+/* ------------------ Footer ------------------ */
+footer {
+    width: calc(100% - (2 * var(--footer_padding)));
+    padding: var(--footer_padding);
+
+    background-color: #000;
+    color: #fff;
+    font-size:30px;
+    font-weight:bold;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+footer h7{
+    display: none;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.tkmce, .ieindia{
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.tkmce a, .ieindia a{
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--white);
+    padding-left: 0.5rem;
+
+}
+
+.tkmce > img, .ieindia > img{
+    display: none;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+}
+
+.social-media{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.social-media h7{
+    display: none;
+    width: fit-content;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.social-media a{
+    width: fit-content;
+}
+
+.social-media a > img{
+    width: var(--footer-logo-width);
+    height: var(--footer-logo-width);
+}
+
+.social-media a > img:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+#fb{    
+    border-radius: calc(var(--footer-logo-width)/2);
+}
+#insta{
+    border-radius: calc(var(--footer-logo-width)/4.29);
+}
+#yt{
+    width: calc(var(--footer-logo-width)/0.71);
+    border-radius: calc(var(--footer-logo-width)/7.5);
+}
+
+/* styles for browsers larger than 600px; */
+
+@media only screen and (min-width: 600px) {
+    
+    nav{
+        height: var(--nav_bar_ht);
+        display: flex;
+        flex-direction: column;
+        text-align: center;            
+        position: fixed;
+        top: 0;
+        z-index: 9999; 
+    }
+    
+    .logo-container{
+       justify-content: space-around;
+    }
+
+    .logo{        
+        --logo_ht: 4.5rem;
+        padding: 0;
+    }
+
+    #hamburger-icon {
+        display: none;
+    }
+
+    ul{
+        display: flex;
+    }
+    .overlay{
+        height: 70vh;
+        padding-top: var(--nav_bar_ht);
+    }
+
+    .heading-text-container{
+        height: calc(100% - (2 * var(--heading_padding)));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .heading-text-container h2{
+        --heading_font_size: 6rem;
+    }
+
+    .heading-text-container p{
+        --heading_font_size: 6rem;
+        padding: 3rem 0;
+    }   
+/* ------------------card common------------------ */
+    .card:hover{
+        transform: scale(1.05);
+    }
+/* ------------------container common------------------ */
+    .container{
+        --container_padding: 12rem;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        font-size: 3rem;
+    }
+/* ------------------about us------------------ */
+    .about .content{
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+
+/* ------------------button------------------ */
+
+    #join-us:hover,#more:hover{
+        transform: scale(1.05);
+    }
+
+    #join-us a:hover,#more a:hover{
+        color:var(--orange);
+    }
+
+    .events-pre-btn,
+    .events-nxt-btn,
+    .our-team-pre-btn,
+    .our-team-nxt-btn {
+        display: flex;
+    }
+
+    footer{
+        --footer_padding: 12rem; /* needed as to change variable since width of footer is calculated based on this var*/
+        padding: 1.5rem var(--footer_padding);
+    }
+
+    
+    footer h7/* text: copyright */, .social-media h7 /* text: connect */{
+        display: block;
+    }
+
+    .tkmce, .ieindia{
+        display: flex;
+    }
+
+    .tkmce > img, .ieindia > img{
+        display: block;
+    }
+}
+
+/* ------------------ Fonts ------------------ */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+@font-face {
+	font-family: 'OldeEnglish';
+	src:url('fonts/OldeEnglish.woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Monotype Corsiva';
+	src:url('fonts/MonotypeCorsiva_Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
